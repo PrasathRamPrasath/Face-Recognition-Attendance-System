@@ -1,0 +1,142 @@
+.page-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.section-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.surface-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-card);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  height: 100%;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.stat-icon-indigo {
+  background: #eef0fe;
+  color: #4338ca;
+}
+.stat-icon-green {
+  background: #eafaf0;
+  color: #16a34a;
+}
+.stat-icon-orange {
+  background: #fff4e8;
+  color: #d97706;
+}
+.stat-icon-red {
+  background: #fdecec;
+  color: #dc2626;
+}
+
+.stat-value {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.status-tag-present {
+  background: #eafaf0 !important;
+  color: #16a34a !important;
+  border-color: #bdf0d1 !important;
+  font-weight: 600;
+}
+
+.status-tag-late {
+  background: #fff4e8 !important;
+  color: #d97706 !important;
+  border-color: #ffe3bd !important;
+  font-weight: 600;
+}
+
+.status-tag-absent {
+  background: #fdecec !important;
+  color: #dc2626 !important;
+  border-color: #f7cfcf !important;
+  font-weight: 600;
+}
+
+.camera-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #0f0f23;
+  box-shadow: var(--shadow-card);
+}
+
+.camera-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.camera-frame canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(-1);
+}
+
+.camera-overlay-ring {
+  position: absolute;
+  inset: 24px;
+  border: 3px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  pointer-events: none;
+}
