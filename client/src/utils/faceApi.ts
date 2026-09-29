@@ -22,11 +22,14 @@ export const loadFaceModels = (): Promise<void> => {
 
 export const areModelsLoaded = (): boolean => modelsLoaded;
 
+// Lower threshold than the 0.5 default so backlit / uneven lighting still detects a face
+const detectorOptions = new faceapi.TinyFaceDetectorOptions({ inputSize: 416, scoreThreshold: 0.3 });
+
 export const detectFaceDescriptor = async (
   input: HTMLVideoElement
 ): Promise<{ descriptor: number[]; box: faceapi.Box } | null> => {
   const detection = await faceapi
-    .detectSingleFace(input, new faceapi.TinyFaceDetectorOptions())
+    .detectSingleFace(input, detectorOptions)
     .withFaceLandmarks()
     .withFaceDescriptor();
 

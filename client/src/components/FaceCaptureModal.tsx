@@ -53,10 +53,20 @@ const FaceCaptureModal = ({ open, memberName, onClose, onCapture }: FaceCaptureM
   useEffect(() => {
     if (!open || !modelsReady) return;
 
+    let busy = false;
     intervalRef.current = window.setInterval(async () => {
-      if (!videoRef.current || videoRef.current.readyState < 2) return;
-      const result = await detectFaceDescriptor(videoRef.current);
-      setFaceDetected(result ? result.descriptor : null);
+      const video = videoRef.current;
+      if (busy || !video || video.readyState < 2 || !video.videoWidth) return;
+      busy = true;
+      try {
+        const result = await detectFaceDescriptor(video);
+        setFaceDetected(result ? result.descriptor : null);
+      } catch (err) {
+        console.error('Face detection failed', err);
+        setError(`Face detection failed: ${err instanceof Error ? err.message : String(err)}`);
+      } finally {
+        busy = false;
+      }
     }, 600);
 
     return () => {

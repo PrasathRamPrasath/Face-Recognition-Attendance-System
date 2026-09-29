@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import './index.css';
 import './global.css';
+import './styles/app.css';
 import App from './App.tsx';
 import { AuthProvider } from './context/AuthContext';
 
